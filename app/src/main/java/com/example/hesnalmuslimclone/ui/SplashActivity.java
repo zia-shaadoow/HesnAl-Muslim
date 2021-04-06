@@ -42,7 +42,7 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(() -> {
             initializeDb();
             animateAndNavigate();
-        }, 3000);
+        }, 4000);
     }
 
     private void animateAndNavigate() {
@@ -52,27 +52,34 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void initializeDb() {
+        executorService.execute(() -> thekr = dao.getFirstThekr());
+
+        //I blocked the main thread to ensure that the query will be done
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         executorService.execute(() -> {
-            thekr = dao.getFirstThekr();
             //no database in the device
             if (thekr == null) {
                 Log.i(TAG, "JJJJ initializeDb: " + thekr);
-                executorService.execute(() -> { dao.insertCategories(getCategories());});
-                executorService.execute(() -> { dao.insertAzkar(getAthkar());});
-            }
-            else {
+                executorService.execute(() -> {
+                    dao.insertCategories(getCategories());
+                });
+                executorService.execute(() -> {
+                    dao.insertAzkar(getAthkar());
+                });
+            } else {
                 Log.i(TAG, "JJJJ initializeDb: " + thekr.id);
             }
-
         });
-
-
     }
 
 
     private void makeFullScreen() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
