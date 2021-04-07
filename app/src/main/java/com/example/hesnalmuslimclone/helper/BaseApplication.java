@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.room.Room;
+
 import com.example.hesnalmuslimclone.database.AppDatabase;
 import com.example.hesnalmuslimclone.database.HesnDao;
 

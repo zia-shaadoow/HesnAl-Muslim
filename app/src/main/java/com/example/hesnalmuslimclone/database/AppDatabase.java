@@ -15,7 +15,8 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract HesnDao getHesnDao();
     public static AppDatabase getDatabase(Context context){
         if (DATABASE == null){
-            DATABASE = Room.databaseBuilder(context, AppDatabase.class, "hesnalmuslim").build();
+            DATABASE = Room.databaseBuilder(context, AppDatabase.class, "hesnalmuslim")
+                    .build();
         }
         return DATABASE;
     }
