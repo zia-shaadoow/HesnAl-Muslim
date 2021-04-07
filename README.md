@@ -2,8 +2,8 @@
 HesnAl-Muslim is an android application that contains all Athkar in the famous book "Hesn Al-Muslim" in the same order, and with new features like listening to athkar and more.
 
 # Features:
-It shows all athkar in the main screen. <br>
-It allows to search in that list. <br>
+It shows all athkar on the main screen. <br>
+It allows searching in that list. <br>
 It allows to add thekr to favorite or remove from it. <br>
 Each category of athkar has its own place to be shown. <br>
 Each thekr has its details like who did report the speech, how many times to say the thekr... <br>
