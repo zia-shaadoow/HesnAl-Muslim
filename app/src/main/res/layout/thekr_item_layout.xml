@@ -74,7 +74,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:fontFamily="@font/harbi_font"
+            android:fontFamily="@font/hakem_font"
             android:gravity="center"
             android:padding="8dp"
             android:textColor="@color/white"
@@ -101,7 +101,7 @@
             android:gravity="center"
             android:layout_height="match_parent"
             android:textColor="@color/white"
-            android:fontFamily="@font/harbi_font"
+            android:fontFamily="@font/hakem_font"
             android:padding="8dp"
             android:textSize="12sp"
             tools:text="ثلاث مرات" />

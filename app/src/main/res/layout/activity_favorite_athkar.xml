@@ -36,7 +36,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center|start"
-                android:fontFamily="@font/harbi_font"
+                android:fontFamily="@font/hakem_font"
+                android:textStyle="bold"
                 android:paddingEnd="8dp"
                 android:textColor="@color/white"
                 android:text="المَوْضُوعَاتُ المفضَّلةُ" />

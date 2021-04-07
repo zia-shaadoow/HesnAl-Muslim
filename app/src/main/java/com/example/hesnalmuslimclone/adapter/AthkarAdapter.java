@@ -1,12 +1,10 @@
 package com.example.hesnalmuslimclone.adapter;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,11 +16,10 @@ import com.example.hesnalmuslimclone.models.Zekr;
 import java.util.List;
 
 
-public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewHolder> {
+public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewHolder>{
     private static final String TAG = "AthkarAdapter";
     private List<Zekr> athkar;
     private ThekrClickListener thekrClickListener;
-
     public AthkarAdapter(List<Zekr> athkar, ThekrClickListener thekrClickListener) {
         this.athkar = athkar;
         this.thekrClickListener = thekrClickListener;
@@ -37,7 +34,7 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
 
     @Override
     public void onBindViewHolder(@NonNull ThekrViewHolder holder, int position) {
-        Zekr zekr = athkar.get(position);
+        Zekr zekr = athkar.get(holder.getAdapterPosition());
         holder.bind(zekr);
 
     }
@@ -46,6 +43,9 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
     public int getItemCount() {
         return athkar.size();
     }
+
+
+
 
     class ThekrViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private final TextView thekrDescriptionTextView;

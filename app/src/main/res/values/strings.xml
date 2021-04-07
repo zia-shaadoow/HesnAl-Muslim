@@ -3,5 +3,6 @@
 
     <!--    <string name="thekr_about">Hello, %1$s! You have %2$d new messages.</string>-->
     <string name="thekr_about">الذكر %1$s من %1$d</string>
+    <string name="chooser">مشاركة بواسطة</string>
 
 </resources>

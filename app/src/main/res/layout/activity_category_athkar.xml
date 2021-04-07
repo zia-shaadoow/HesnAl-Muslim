@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/off_white"
     tools:context=".ui.CategoryAthkarActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -28,6 +29,7 @@
                 android:id="@+id/upButtonImageView"
                 android:layout_width="24dp"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
                 android:src="@drawable/ic_left_arrow" />
 
             <TextView
@@ -35,10 +37,11 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:fontFamily="@font/hakem_font"
                 android:gravity="center|start"
-                android:fontFamily="@font/harbi_font"
                 android:paddingEnd="8dp"
                 android:textColor="@color/white"
+                android:textStyle="bold"
                 tools:text="ما يقول إذا وضع ثوبه" />
 
         </LinearLayout>

@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="24sp"
-            android:fontFamily="@font/harbi_font"
+            android:fontFamily="@font/hakem_font"
+            android:textStyle="bold"
             android:text="حِصْنُ الْمُسْلِمِ" />
 
         <TextView
@@ -38,7 +39,8 @@
             android:scaleX="1.2"
             android:textSize="18sp"
             android:textColor="@color/white"
-            android:fontFamily="@font/harbi_font"
+            android:fontFamily="@font/hakem_font"
+            android:textStyle="bold"
             android:text="مِنْ أَذْكَارِ الْكِتَابِ وَالْسُّنَّةِ" />
 
     </LinearLayout>

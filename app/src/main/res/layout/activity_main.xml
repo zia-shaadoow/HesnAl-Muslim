@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#FFF7EE"
+    android:background="@color/off_white"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
@@ -50,7 +50,8 @@
                 android:textColor="@color/white"
                 android:background="@android:color/transparent"
                 android:paddingEnd="16dp"
-                android:fontFamily="@font/harbi_font"
+                android:fontFamily="@font/hakem_font"
+                android:textStyle="bold"
                 android:hint="بَحْث"/>
 
         </LinearLayout>
