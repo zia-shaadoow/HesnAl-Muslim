@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import android.content.Context;
-import android.media.AudioManager;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,16 +19,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hesnalmuslimclone.R;
 import com.example.hesnalmuslimclone.adapter.AthkarAdapter;
 import com.example.hesnalmuslimclone.database.HesnDao;
+import com.example.hesnalmuslimclone.exoplayer.RadioPlayerActivity;
 import com.example.hesnalmuslimclone.helper.BaseApplication;
 import com.example.hesnalmuslimclone.helper.ThekrClickListener;
 import com.example.hesnalmuslimclone.models.Zekr;
 
-import java.io.IOException;
 import java.util.List;
 
 public class CategoryAthkarActivity extends AppCompatActivity implements ThekrClickListener {
@@ -108,29 +107,23 @@ public class CategoryAthkarActivity extends AppCompatActivity implements ThekrCl
 
     @Override
     public void onThekrLongClicked(Zekr zekr, int position) {
-        if (zekr.categoryId == 27 || zekr.categoryId == 28){
-            zekr.categoryId = 27;
+        if (zekr.categoryId > 27){
+            zekr.categoryId -= 1;
         }
+
         String thekrUrl = BASE_THEKR_URL + zekr.categoryId + ".ogg";
-        if (mediaPlayer == null) {
-            mediaPlayer = new MediaPlayer();
-        }
-        playAudio(thekrUrl);
+
+//        Intent intent = new Intent(this, RadioPlayerActivity.class);
+//        intent.putExtra("url", thekrUrl);
+//        startActivity(intent);
+        openAudioBottomSheet(thekrUrl);
+
     }
 
-    private void playAudio(String url) {
-        mediaPlayer.reset();
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        try {
-            mediaPlayer.setDataSource(url);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        mediaPlayer.prepareAsync();
-        mediaPlayer.setOnPreparedListener(MediaPlayer::start);
 
-        mediaPlayer.setOnCompletionListener(mp -> {
-            Toast.makeText(this, "End", Toast.LENGTH_SHORT).show();
-        });
+
+    private void openAudioBottomSheet(String audioUrl){
+        AudioPlayerBottomSheet audioPlayerBottomSheet = new AudioPlayerBottomSheet(audioUrl);
+        audioPlayerBottomSheet.show(getSupportFragmentManager(), audioPlayerBottomSheet.getTag());
     }
 }
