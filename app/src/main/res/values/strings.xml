@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">حصن المسلم</string>
+
+    <!--    <string name="thekr_about">Hello, %1$s! You have %2$d new messages.</string>-->
+    <string name="thekr_about">الذكر %1$s من %1$d</string>
+
 </resources>

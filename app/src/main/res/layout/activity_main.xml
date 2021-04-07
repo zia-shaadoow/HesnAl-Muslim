@@ -20,7 +20,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/basic"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -28,27 +28,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
-
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/searchEditText"
-            android:textColor="@color/white"
-            android:background="@android:color/transparent"
-            android:paddingEnd="16dp"
-            android:fontFamily="@font/harbi_font"
-            android:hint="بحث"/>
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/favoriteCategoriesImageView"
+                android:layout_width="28dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_heart_filled_white" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:id="@+id/searchEditText"
+                android:textColor="@color/white"
+                android:background="@android:color/transparent"
+                android:paddingEnd="16dp"
+                android:fontFamily="@font/harbi_font"
+                android:hint="بَحْث"/>
+
+        </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_heart_filled" />
 </androidx.constraintlayout.widget.ConstraintLayout>

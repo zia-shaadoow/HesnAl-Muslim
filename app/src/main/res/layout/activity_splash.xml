@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/basic"
     tools:context=".ui.SplashActivity">
 
     <LinearLayout
@@ -25,7 +26,7 @@
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/basic"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:fontFamily="@font/harbi_font"
             android:text="حِصْنُ الْمُسْلِمِ" />
@@ -36,7 +37,7 @@
             android:layout_marginTop="8dp"
             android:scaleX="1.2"
             android:textSize="18sp"
-            android:textColor="@color/basic"
+            android:textColor="@color/white"
             android:fontFamily="@font/harbi_font"
             android:text="مِنْ أَذْكَارِ الْكِتَابِ وَالْسُّنَّةِ" />
 

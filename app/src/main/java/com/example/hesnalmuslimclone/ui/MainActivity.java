@@ -8,15 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.hesnalmuslimclone.R;
+import com.example.hesnalmuslimclone.adapter.CategoriesAdapter;
 import com.example.hesnalmuslimclone.database.HesnDao;
 import com.example.hesnalmuslimclone.helper.BaseApplication;
 import com.example.hesnalmuslimclone.helper.HomeItemClickListener;
 import com.example.hesnalmuslimclone.models.Category;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +26,10 @@ public class MainActivity extends AppCompatActivity implements HomeItemClickList
     private static final String TAG = "MainActivity";
 
     private HesnDao dao;
-    private FloatingActionButton fab;
     private RecyclerView homeRecyclerView;
     private EditText searchEditText;
-
-    private HomeAdapter homeAdapter;
+    private ImageView favoriteCategoriesImageView;
+    private CategoriesAdapter categoriesAdapter;
     private List<Category> currentCategories;
     private final List<Category> newFilteredCategories = new ArrayList<>();
     private ExecutorService executorService;
@@ -46,64 +45,68 @@ public class MainActivity extends AppCompatActivity implements HomeItemClickList
 
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable query) {
-                if (query.toString().isEmpty()){
+                if (query.toString().isEmpty()) {
                     getAthkarCategories();
-                }
-                else{
+                } else {
                     newFilteredCategories.clear();
-                    for (Category category : currentCategories){
-                        if (category.abstractName.contains(query.toString())){
+                    for (Category category : currentCategories) {
+                        if (category.abstractName.contains(query.toString())) {
                             newFilteredCategories.add(category);
                         }
                     }
-                    homeAdapter = new HomeAdapter(newFilteredCategories, MainActivity.this);
-                    homeRecyclerView.setAdapter(homeAdapter);
+                    categoriesAdapter = new CategoriesAdapter(newFilteredCategories, MainActivity.this);
+                    homeRecyclerView.setAdapter(categoriesAdapter);
                 }
             }
         });
 
-        //GetFavs
-        fab.setOnClickListener(v -> dao.getFavoriteAthkar().observe(this, favoriteCategories -> {
-            Log.i(TAG, "ISLAM onChanged: " + favoriteCategories);
-            Log.i(TAG, "ISLAM onChanged: " + favoriteCategories.size());
-        }));
+        favoriteCategoriesImageView.setOnClickListener( v -> {
+            Intent intent = new Intent(this, FavoriteAthkarActivity.class);
+            startActivity(intent);
+        });
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        getAthkarCategories();
+        if (categoriesAdapter == null) {
+            getAthkarCategories();
+        }
     }
 
     private void initViews() {
-        fab = findViewById(R.id.fab);
+        favoriteCategoriesImageView = findViewById(R.id.favoriteCategoriesImageView);
         searchEditText = findViewById(R.id.searchEditText);
+        searchEditText.setSelection(searchEditText.getText().length());
         homeRecyclerView = findViewById(R.id.homeItemsRecyclerView);
     }
 
     private void getAthkarCategories() {
-            LiveData<List<Category>> categoryLiveData = dao.getHomeAthkar();
-            categoryLiveData.observe(this, categories -> {
-                currentCategories = categories;
-                homeAdapter = new HomeAdapter(categories, this);
-                homeRecyclerView.setAdapter(homeAdapter);
-                //i used this method to prevent live data from emitting new values if i added, or remove from fav.
-                categoryLiveData.removeObservers(this);
-            });
+        LiveData<List<Category>> categoryLiveData = dao.getHomeAthkar();
+        categoryLiveData.observe(this, categories -> {
+            currentCategories = categories;
+            categoriesAdapter = new CategoriesAdapter(categories, this);
+            homeRecyclerView.setAdapter(categoriesAdapter);
+            //i used this method to prevent live data from emitting new values if i added, or remove from fav.
+            categoryLiveData.removeObservers(this);
+        });
     }
 
     @Override
     public void onItemClicked(Category category) {
         Intent intent = new Intent(this, CategoryAthkarActivity.class);
         intent.putExtra("id", category.id);
+        intent.putExtra("categoryName", category.abstractName);
         startActivity(intent);
 
     }
@@ -120,6 +123,6 @@ public class MainActivity extends AppCompatActivity implements HomeItemClickList
             executorService.execute(() -> dao.addCategoryToFavorite(category.id));
             category.isFavorite = 1;
         }
-        homeAdapter.notifyItemChanged(position, category);
+        categoriesAdapter.notifyItemChanged(position, category);
     }
 }

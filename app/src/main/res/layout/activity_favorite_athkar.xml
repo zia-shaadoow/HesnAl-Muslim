@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.CategoryAthkarActivity">
+    tools:context=".ui.FavoriteAthkarActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -39,17 +39,16 @@
                 android:fontFamily="@font/harbi_font"
                 android:paddingEnd="8dp"
                 android:textColor="@color/white"
-                tools:text="ما يقول إذا وضع ثوبه" />
+                android:text="المَوْضُوعَاتُ المفضَّلةُ" />
 
         </LinearLayout>
-
-
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/athkarRecyclerView"
+        android:id="@+id/favoriteCategoriesRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

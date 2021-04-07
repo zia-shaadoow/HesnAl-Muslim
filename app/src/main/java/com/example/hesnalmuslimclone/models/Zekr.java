@@ -2,6 +2,7 @@ package com.example.hesnalmuslimclone.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
@@ -14,7 +15,7 @@ public class Zekr {
 
     @ColumnInfo(name = "category_id")
     @SerializedName("category_id")
-    public Integer category_id;
+    public Integer categoryId;
 
     public String description;
 
@@ -29,16 +30,11 @@ public class Zekr {
     @SerializedName("counter_num")
     public Integer counterNumber;
 
+    @Ignore
+    public Integer partialCounter = 0;
+
     @Override
     public String toString() {
-        return "Zekr{" +
-                "id=" + id +
-                ", category_id=" + category_id +
-                ", description='" + description + '\'' +
-                ", abstractDescription='" + abstractDescription + '\'' +
-                ", hint='" + hint + '\'' +
-                ", counter='" + counter + '\'' +
-                ", counterNumber=" + counterNumber +
-                '}';
+        return counterNumber + counter+" ";
     }
 }

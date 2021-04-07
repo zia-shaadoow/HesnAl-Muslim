@@ -14,5 +14,12 @@
         <!-- Customize your theme here. -->
 
         <item name="android:textColorHint">@color/white</item>
+
+
+    </style>
+
+    <style name="ToolbarColoredBackArrow" parent="Theme.Room">
+        <item name="android:textColorSecondary">@color/white</item>
+
     </style>
 </resources>
