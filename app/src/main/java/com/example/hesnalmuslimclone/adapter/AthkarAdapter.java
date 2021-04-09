@@ -91,17 +91,13 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
             if (getAdapterPosition() <= athkar.size() - 1) {
                 currentThekr.counterNumber--;
 
-                if (currentThekr.counterNumber == 0 && getAdapterPosition() < athkar.size() - 1) {
+                if (getAdapterPosition() < athkar.size() - 1) {
                     thekrCounterTextView.setText(String.valueOf(currentThekr.counterNumber));
-                    try {
-                        Thread.sleep(250);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } finally {
+                    if (currentThekr.counterNumber == 0 ){
                         thekrClickListener.onThekrClicked(currentThekr, getAdapterPosition() + 1);
                     }
                 }
-                else{
+                else if (currentThekr.counterNumber == 0 && getAdapterPosition() == athkar.size() - 1){
                     thekrCounterTextView.setText(String.valueOf(0));
                     Toast.makeText(itemView.getContext(), "تمَّ بحَمْدِ اللَّـهِ", Toast.LENGTH_SHORT).show();
                 }
