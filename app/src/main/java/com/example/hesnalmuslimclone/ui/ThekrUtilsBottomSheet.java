@@ -18,6 +18,8 @@ import com.example.hesnalmuslimclone.R;
 import com.example.hesnalmuslimclone.models.Zekr;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import java.util.Objects;
+
 import static androidx.core.content.ContextCompat.getSystemService;
 
 public class ThekrUtilsBottomSheet extends BottomSheetDialogFragment {
@@ -68,9 +70,10 @@ public class ThekrUtilsBottomSheet extends BottomSheetDialogFragment {
     }
 
     private void copyToClipboard() {
-        ClipboardManager clipboard = getSystemService(getContext(), ClipboardManager.class);
-        String copiedText = "من "+ categoryName + "\n" + thekr.description + "\n-----\n" + thekr.hint;
+        ClipboardManager clipboard = getSystemService(Objects.requireNonNull(getContext()), ClipboardManager.class);
+        String copiedText = "من "+ categoryName + "\n" + thekr.description + "\n\n" + thekr.hint;
         ClipData clip = ClipData.newPlainText("label", copiedText);
+        assert clipboard != null;
         clipboard.setPrimaryClip(clip);
         Toast.makeText(requireContext(), "تم نسخُ الذكرِ بالحافظة", Toast.LENGTH_SHORT).show();
         dismiss();
@@ -84,7 +87,7 @@ public class ThekrUtilsBottomSheet extends BottomSheetDialogFragment {
 
     private void openAudioBottomSheet(String audioUrl){
         AudioPlayerBottomSheet audioPlayerBottomSheet = new AudioPlayerBottomSheet(audioUrl);
-        audioPlayerBottomSheet.show(getActivity().getSupportFragmentManager(), audioPlayerBottomSheet.getTag());
+        audioPlayerBottomSheet.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(), audioPlayerBottomSheet.getTag());
     }
 
     private void shareThekr(){

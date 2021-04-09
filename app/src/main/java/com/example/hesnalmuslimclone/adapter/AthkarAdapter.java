@@ -90,7 +90,6 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
 
             Zekr currentThekr = athkar.get(getAdapterPosition());
             if (getAdapterPosition() <= athkar.size() - 1) {
-//                currentThekr.counterNumber--;
 
                 if (getAdapterPosition() < athkar.size() - 1) {
                     currentThekr.counterNumber--;

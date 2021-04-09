@@ -33,6 +33,6 @@ public class Zekr {
 
     @Override
     public String toString() {
-        return counterNumber + counter+" ";
+        return categoryId+" ";
     }
 }
