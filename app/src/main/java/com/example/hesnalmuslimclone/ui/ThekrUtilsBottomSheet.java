@@ -88,7 +88,7 @@ public class ThekrUtilsBottomSheet extends BottomSheetDialogFragment {
     }
 
     private void shareThekr(){
-            String messageText = thekr.abstractDescription + "\n------------\n" + thekr.hint;
+            String messageText = thekr.abstractDescription + "\n\n" + thekr.hint;
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_TEXT, messageText);

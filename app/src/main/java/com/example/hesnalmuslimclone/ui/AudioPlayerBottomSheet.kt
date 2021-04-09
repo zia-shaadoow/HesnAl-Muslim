@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -33,6 +34,7 @@ class AudioPlayerBottomSheet(private val url: String) : BottomSheetDialogFragmen
     private lateinit var skipBackwardImageButton: ImageButton
     private lateinit var myView: View
     private lateinit var linearLayout: LinearLayout
+    private lateinit var progressLayout: FrameLayout
 //    private lateinit var snackBar: Snackbar
     private var speed = 1.0F
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -53,6 +55,7 @@ class AudioPlayerBottomSheet(private val url: String) : BottomSheetDialogFragmen
         skipForwardImageButton = myView.findViewById(R.id.skipForwardImageButton)
         skipBackwardImageButton = myView.findViewById(R.id.skipBackwardImageButton)
         linearLayout = myView.findViewById(R.id.mediaControlsBottomSection)
+        progressLayout = myView.findViewById(R.id.progressLayout)
 //        snackBar = Snackbar.make(linearLayout, "من فضلك انتظر...", Snackbar.LENGTH_INDEFINITE)
 
         playButtonImageButton.setOnClickListener {
@@ -115,10 +118,12 @@ class AudioPlayerBottomSheet(private val url: String) : BottomSheetDialogFragmen
                     }
                     Player.STATE_BUFFERING -> {
 //                        snackBar.show()
+                        progressLayout.visibility = View.VISIBLE
                         Log.i(TAG, "EXO : STATE_BUFFERING")
                     }
                     Player.STATE_READY -> {
 //                        snackBar.dismiss()
+                        progressLayout.visibility = View.GONE
                         Log.i(TAG, "EXO : STATE_READY")
                     }
                     Player.STATE_ENDED -> {

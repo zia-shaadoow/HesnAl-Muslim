@@ -5,78 +5,101 @@
     android:background="@android:color/transparent">
 
     <LinearLayout
-        android:id="@+id/mediaControlsBottomSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/basic"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp">
-
-        <ImageButton
-            android:id="@+id/skipBackwardImageButton"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="64dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_rewind_option"
-            android:tint="@color/white" />
+        android:orientation="vertical">
 
         <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="72dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="4dp"
-            android:layout_weight="1"
-            >
+            android:id="@+id/progressLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/basic"
+            android:visibility="gone"
+            android:padding="8dp">
 
-
-            <ImageButton
-                android:id="@+id/pauseButtonImageButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
+            <ProgressBar
+                android:id="@+id/progressBar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitCenter"
-                android:visibility="gone"
-                android:src="@drawable/ic_pause"
-                android:tint="@color/off_white" />
-
-
-            <ImageButton
-                android:id="@+id/playButtonImageButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_play_button_arrow"
-                android:tint="@color/off_white" />
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                android:indeterminateTint="@color/off_white"
+                android:max="100" />
 
 
         </FrameLayout>
 
+        <LinearLayout
+            android:id="@+id/mediaControlsBottomSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/basic"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp">
+
+            <ImageButton
+                android:id="@+id/skipBackwardImageButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_rewind_option"
+                android:tint="@color/white" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1">
 
 
+                <ImageButton
+                    android:id="@+id/pauseButtonImageButton"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_pause"
+                    android:tint="@color/off_white"
+                    android:visibility="gone" />
 
 
+                <ImageButton
+                    android:id="@+id/playButtonImageButton"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
 
-        <ImageButton
-            android:id="@+id/skipForwardImageButton"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="64dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_fast_forward_button"
-            android:tint="@color/off_white" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_play_button_arrow"
+                    android:tint="@color/off_white" />
+
+
+            </FrameLayout>
+
+            <ImageButton
+                android:id="@+id/skipForwardImageButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_fast_forward_button"
+                android:tint="@color/off_white" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
+
 
 </FrameLayout>
