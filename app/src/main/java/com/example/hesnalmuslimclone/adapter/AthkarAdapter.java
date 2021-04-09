@@ -22,6 +22,7 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
     private static final String TAG = "AthkarAdapter";
     private List<Zekr> athkar;
     private ThekrClickListener thekrClickListener;
+
     public AthkarAdapter(List<Zekr> athkar, ThekrClickListener thekrClickListener) {
         this.athkar = athkar;
         this.thekrClickListener = thekrClickListener;
@@ -89,17 +90,25 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
 
             Zekr currentThekr = athkar.get(getAdapterPosition());
             if (getAdapterPosition() <= athkar.size() - 1) {
-                currentThekr.counterNumber--;
+//                currentThekr.counterNumber--;
 
                 if (getAdapterPosition() < athkar.size() - 1) {
+                    currentThekr.counterNumber--;
                     thekrCounterTextView.setText(String.valueOf(currentThekr.counterNumber));
                     if (currentThekr.counterNumber == 0 ){
                         thekrClickListener.onThekrClicked(currentThekr, getAdapterPosition() + 1);
                     }
                 }
-                else if (currentThekr.counterNumber == 0 && getAdapterPosition() == athkar.size() - 1){
-                    thekrCounterTextView.setText(String.valueOf(0));
-                    Toast.makeText(itemView.getContext(), "تمَّ بحَمْدِ اللَّـهِ", Toast.LENGTH_SHORT).show();
+                else if (getAdapterPosition() == athkar.size() - 1){
+                    if (currentThekr.counterNumber == 0 ){
+                        thekrCounterTextView.setText(String.valueOf(0));
+                        Toast.makeText(itemView.getContext(), "تمَّ بحَمْدِ اللَّـهِ", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        currentThekr.counterNumber--;
+                        thekrCounterTextView.setText(String.valueOf(currentThekr.counterNumber));
+                    }
+
                 }
             }
         }
