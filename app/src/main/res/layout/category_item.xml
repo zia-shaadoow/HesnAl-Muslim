@@ -33,7 +33,7 @@
                 android:id="@+id/favoriteImageView"
                 android:layout_width="28dp"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:layout_gravity="start"
                 />
 

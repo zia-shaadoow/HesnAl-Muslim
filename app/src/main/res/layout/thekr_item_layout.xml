@@ -62,6 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
+        android:gravity="center"
         android:background="@drawable/semi_round_background"
         android:paddingBottom="8dp"
         android:orientation="horizontal"
@@ -89,7 +90,7 @@
             android:gravity="center"
             android:background="@drawable/counter_background"
             android:textColor="@color/white"
-            android:fontFamily="@font/harbi_font"
+            android:fontFamily="@font/hakem_font"
             android:padding="8dp"
             android:textSize="24sp"
             android:text="0" />

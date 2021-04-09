@@ -30,8 +30,6 @@ public class Zekr {
     @SerializedName("counter_num")
     public Integer counterNumber;
 
-    @Ignore
-    public Integer partialCounter = 0;
 
     @Override
     public String toString() {

@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
@@ -15,7 +14,6 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.hesnalmuslimclone.R;
 import com.example.hesnalmuslimclone.adapter.AthkarAdapter;
@@ -85,10 +83,7 @@ public class CategoryAthkarActivity extends AppCompatActivity implements ThekrCl
 
     @Override
     public void onThekrLongClicked(Zekr zekr, int position) {
-
         openThekrUtilsBottomSheet(zekr, categoryName);
-
-
     }
 
     private void openThekrUtilsBottomSheet(Zekr thekr, String categoryName) {

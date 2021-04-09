@@ -1,10 +1,12 @@
 package com.example.hesnalmuslimclone.adapter;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,13 +48,13 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
 
 
 
-
-    class ThekrViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    class ThekrViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         private final TextView thekrDescriptionTextView;
         private final TextView thekrHintTextView;
         private final TextView thekrAndTotalNumberTextView;
         private TextView thekrCounterTextView;
         private final TextView numberOfTimesArabicTextView;
+
 
         public ThekrViewHolder(@NonNull View itemView)  {
             super(itemView);
@@ -76,38 +78,34 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
             thekrAndTotalNumberTextView.setText(" الذكر " + partialThekr + " من " + totalThekr);
             String thekrCounter = (zekr.counter == null) ? "مرَّةً واحِدَةً" : zekr.counter;
             numberOfTimesArabicTextView.setText(thekrCounter);
+
+            thekrCounterTextView.setText(String.valueOf(zekr.counterNumber));
         }
 
 
 
         @Override
         public void onClick(View v) {
+
             Zekr currentThekr = athkar.get(getAdapterPosition());
+            if (getAdapterPosition() <= athkar.size() - 1) {
+                currentThekr.counterNumber--;
 
-            if (getAdapterPosition() < athkar.size() - 1){
-
-                if (currentThekr.partialCounter < currentThekr.counterNumber){
-                    currentThekr.partialCounter += 1;
-                }
-
-                if (currentThekr.partialCounter.equals(currentThekr.counterNumber)){
-                    thekrCounterTextView.setText(String.valueOf(currentThekr.partialCounter));
+                if (currentThekr.counterNumber == 0 && getAdapterPosition() < athkar.size() - 1) {
+                    thekrCounterTextView.setText(String.valueOf(currentThekr.counterNumber));
                     try {
                         Thread.sleep(250);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
-                    finally {
+                    } finally {
                         thekrClickListener.onThekrClicked(currentThekr, getAdapterPosition() + 1);
                     }
-                    athkar.get(getAdapterPosition() + 1).partialCounter = 0;
                 }
-                thekrCounterTextView.setText(String.valueOf(currentThekr.partialCounter));
+                else{
+                    thekrCounterTextView.setText(String.valueOf(0));
+                    Toast.makeText(itemView.getContext(), "تمَّ بحَمْدِ اللَّـهِ", Toast.LENGTH_SHORT).show();
+                }
             }
-            else if (getAdapterPosition() == athkar.size() - 1){
-                thekrCounterTextView.setText(String.valueOf(currentThekr.counterNumber));
-            }
-
         }
 
         @Override
@@ -116,5 +114,6 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
             thekrClickListener.onThekrLongClicked(currentThekr, getAdapterPosition());
             return true;
         }
+
     }
 }
