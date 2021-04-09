@@ -40,8 +40,14 @@ public class SplashActivity extends AppCompatActivity {
 
         handler = new Handler();
         handler.postDelayed(() -> {
-            initializeDb();
-            animateAndNavigate();
+            try {
+                initializeDb();
+                animateAndNavigate();
+            }
+            catch (Throwable throwable){
+                Log.i(TAG, "onCreate: " + throwable.getLocalizedMessage());
+            }
+
         }, 4000);
     }
 

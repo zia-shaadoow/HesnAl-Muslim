@@ -53,7 +53,6 @@ public class CategoryAthkarActivity extends AppCompatActivity implements ThekrCl
             this.athkar = athkar;
             athkarAdapter = new AthkarAdapter(athkar, this);
             athkarRecyclerView.setAdapter(athkarAdapter);
-            Log.i(TAG, "ISLAM onCreate: " + athkar.size());
         });
     }
 

@@ -92,11 +92,15 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
             if (getAdapterPosition() <= athkar.size() - 1) {
 
                 if (getAdapterPosition() < athkar.size() - 1) {
-                    currentThekr.counterNumber--;
-                    thekrCounterTextView.setText(String.valueOf(currentThekr.counterNumber));
+
+                    if (currentThekr.counterNumber > 0){
+                        currentThekr.counterNumber--;
+                        thekrCounterTextView.setText(String.valueOf(currentThekr.counterNumber));
+                    }
                     if (currentThekr.counterNumber == 0 ){
                         thekrClickListener.onThekrClicked(currentThekr, getAdapterPosition() + 1);
                     }
+
                 }
                 else if (getAdapterPosition() == athkar.size() - 1){
                     if (currentThekr.counterNumber == 0 ){
