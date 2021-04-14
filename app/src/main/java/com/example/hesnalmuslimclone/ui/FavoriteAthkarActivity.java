@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.hesnalmuslimclone.R;
@@ -25,7 +26,7 @@ public class FavoriteAthkarActivity extends AppCompatActivity implements HomeIte
     private ExecutorService executorService;
 
     private RecyclerView favoriteCategoriesRecyclerView;
-    private ImageView upButtonImageView;
+    private ImageButton upButtonImageButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,7 @@ public class FavoriteAthkarActivity extends AppCompatActivity implements HomeIte
         dao = BaseApplication.getDao(getApplicationContext());
         executorService = BaseApplication.getExecutorService();
 
-        upButtonImageView.setOnClickListener(v -> finish());
+        upButtonImageButton.setOnClickListener(v -> finish());
 
     }
 
@@ -54,7 +55,7 @@ public class FavoriteAthkarActivity extends AppCompatActivity implements HomeIte
 
     private void initViews(){
         favoriteCategoriesRecyclerView = findViewById(R.id.favoriteCategoriesRecyclerView);
-        upButtonImageView = findViewById(R.id.upButtonImageView);
+        upButtonImageButton = findViewById(R.id.upButtonImageButton);
     }
 
     @Override

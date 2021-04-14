@@ -14,6 +14,7 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hesnalmuslimclone.R;
 import com.example.hesnalmuslimclone.adapter.AthkarAdapter;
@@ -78,6 +79,19 @@ public class CategoryAthkarActivity extends AppCompatActivity implements ThekrCl
             v.vibrate(250);
         }
         linearLayoutManager.scrollToPosition(position);
+    }
+
+    @Override
+    public void onFinishingAthkar() {
+        Toast.makeText(this, "تمَّ بحَمْدِ اللَّـهِ", Toast.LENGTH_SHORT).show();
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            v.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            long[] pattern = {0, 500, 500};
+            v.vibrate(pattern,2);
+
+        }
     }
 
     @Override

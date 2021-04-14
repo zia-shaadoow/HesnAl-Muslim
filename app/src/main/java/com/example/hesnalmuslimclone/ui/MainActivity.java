@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.hesnalmuslimclone.R;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements HomeItemClickList
     private HesnDao dao;
     private RecyclerView homeRecyclerView;
     private EditText searchEditText;
-    private ImageView favoriteCategoriesImageView;
+    private ImageButton favoriteCategoriesImageButton;
     private CategoriesAdapter categoriesAdapter;
     private List<Category> currentCategories;
     private final List<Category> newFilteredCategories = new ArrayList<>();
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements HomeItemClickList
             }
         });
 
-        favoriteCategoriesImageView.setOnClickListener( v -> {
+        favoriteCategoriesImageButton.setOnClickListener( v -> {
             Intent intent = new Intent(this, FavoriteAthkarActivity.class);
             startActivity(intent);
         });
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements HomeItemClickList
     }
 
     private void initViews() {
-        favoriteCategoriesImageView = findViewById(R.id.favoriteCategoriesImageView);
+        favoriteCategoriesImageButton = findViewById(R.id.favoriteCategoriesImageButton);
         searchEditText = findViewById(R.id.searchEditText);
         searchEditText.setSelection(searchEditText.getText().length());
         homeRecyclerView = findViewById(R.id.homeItemsRecyclerView);

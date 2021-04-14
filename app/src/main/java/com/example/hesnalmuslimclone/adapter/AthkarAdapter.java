@@ -1,6 +1,7 @@
 package com.example.hesnalmuslimclone.adapter;
 
 import android.annotation.SuppressLint;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -66,6 +67,7 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
             thekrAndTotalNumberTextView = itemView.findViewById(R.id.thekrAndTotalNumberTextView);
             thekrCounterTextView =  itemView.findViewById(R.id.thekrCounterTextView);
             numberOfTimesArabicTextView =  itemView.findViewById(R.id.numberOfTimesArabicTextView);
+
         }
 
         @SuppressLint("SetTextI18n")
@@ -105,7 +107,9 @@ public class AthkarAdapter extends RecyclerView.Adapter<AthkarAdapter.ThekrViewH
                 else if (getAdapterPosition() == athkar.size() - 1){
                     if (currentThekr.counterNumber == 0 ){
                         thekrCounterTextView.setText(String.valueOf(0));
-                        Toast.makeText(itemView.getContext(), "تمَّ بحَمْدِ اللَّـهِ", Toast.LENGTH_SHORT).show();
+                        //added to mother
+                        thekrClickListener.onFinishingAthkar();
+
                     }
                     else{
                         currentThekr.counterNumber--;

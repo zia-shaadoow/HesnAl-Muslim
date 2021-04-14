@@ -1,60 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF7EE">
+    >
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="2dp"
-        android:orientation="vertical"
-        android:background="@drawable/round_background"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="#FFF7EE"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/thekrDescriptionTextView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/hakem_font"
-            android:padding="4dp"
-            android:textColor="#350D00"
-            android:textSize="14sp"
-            tools:text="اللَّهُمَّ صَيِّباً نَافِعا"
-             />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="8dp"
             android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="4dp"
-            android:src="@drawable/ic_horizontal_line"
-            app:tint="#350D00" />
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/round_background"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/thekrDescriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/hakem_font"
+                android:padding="4dp"
+                android:textColor="#350D00"
+                android:textSize="16sp"
+                tools:text="اللَّهُمَّ صَيِّباً نَافِعا" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_horizontal_line"
+                app:tint="#350D00" />
 
 
-        <TextView
-            android:id="@+id/thekrHintTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:textColor="#431100"
-            android:fontFamily="@font/hakem_font"
-            android:padding="8dp"
-            android:textSize="12sp"
-            tools:text="البخاري مع الفتح، 2/ 518، برقم 1032" />
+            <TextView
+                android:id="@+id/thekrHintTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/hakem_font"
+                android:padding="8dp"
+                android:textColor="#431100"
+                android:textSize="12sp"
+                tools:text="البخاري مع الفتح، 2/ 518، برقم 1032" />
 
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
 
 
     <LinearLayout
