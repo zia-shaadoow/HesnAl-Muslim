@@ -29,7 +29,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:fontFamily="@font/hakem_font"
             android:textStyle="bold"
             android:layout_marginStart="36dp"
             android:text="نسخ"
@@ -63,7 +62,6 @@
             android:layout_marginStart="36dp"
             android:text="مشاركة"
             android:textColor="@color/white"
-            android:fontFamily="@font/hakem_font"
             android:textStyle="bold"
             android:textSize="16sp" />
     </LinearLayout>
@@ -94,7 +92,6 @@
             android:layout_marginStart="36dp"
             android:textColor="@color/white"
             android:text="الاستماع إلى الذكر"
-            android:fontFamily="@font/hakem_font"
             android:textStyle="bold"
             android:textSize="16sp" />
     </LinearLayout>

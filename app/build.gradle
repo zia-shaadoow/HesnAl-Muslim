@@ -51,9 +51,17 @@ dependencies {
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    //Rx java
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
+
+    // optional - RxJava3 support for Room
+    implementation "androidx.room:room-rxjava3:$room_version"
+
 
 }
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    maven { url "https://oss.jfrog.org/libs-snapshot" }
     mavenCentral()
 }

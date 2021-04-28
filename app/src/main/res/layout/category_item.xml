@@ -44,8 +44,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center|start"
                 android:layout_gravity="end"
-                android:fontFamily="@font/hakem_font"
                 android:textStyle="bold"
+                android:padding="4dp"
                 android:textColor="@color/basic"
                 android:textSize="14sp"
                 tools:text="أَذْكَارُ  مِنَ النَّـومِ" />

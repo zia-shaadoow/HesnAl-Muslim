@@ -24,6 +24,8 @@
         android:background="@color/basic"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -49,7 +51,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:fontFamily="@font/hakem_font"
                 android:hint="بَحْث"
                 android:paddingEnd="16dp"
                 android:textColor="@color/white"
