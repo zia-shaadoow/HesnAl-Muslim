@@ -7,7 +7,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
-
 import com.example.hesnalmuslimclone.models.Category;
 import com.example.hesnalmuslimclone.models.Zekr;
 
@@ -32,7 +31,7 @@ public interface HesnDao {
     void addCategoryToFavorite(int id);
 
     @Query("UPDATE category SET bookmarked = 0 WHERE id = :id")
-    void removeCategoryToFavorite(int id);
+    void removeCategoryFromFavorite(int id);
 
     @Query("SELECT * FROM zekr WHERE id = 1")
     Zekr getFirstThekr();

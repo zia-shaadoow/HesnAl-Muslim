@@ -10,7 +10,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import com.example.hesnalmuslimclone.R;
 import com.example.hesnalmuslimclone.adapter.CategoriesAdapter;
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements HomeItemClickList
     public void onFavoriteIconClicked(int position, Category category) {
         //Remove from favorite
         if (category.isFavorite == 1) {
-            executorService.execute(() -> dao.removeCategoryToFavorite(category.id));
+            executorService.execute(() -> dao.removeCategoryFromFavorite(category.id));
             category.isFavorite = 0;
         }
         //Add to favorite

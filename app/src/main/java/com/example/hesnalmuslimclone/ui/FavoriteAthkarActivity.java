@@ -5,10 +5,8 @@ import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import com.example.hesnalmuslimclone.R;
 import com.example.hesnalmuslimclone.adapter.CategoriesAdapter;
@@ -71,7 +69,7 @@ public class FavoriteAthkarActivity extends AppCompatActivity implements HomeIte
     public void onFavoriteIconClicked(int position, Category category) {
         //Remove from favorite
         if (category.isFavorite == 1) {
-            executorService.execute(() -> dao.removeCategoryToFavorite(category.id));
+            executorService.execute(() -> dao.removeCategoryFromFavorite(category.id));
             category.isFavorite = 0;
         }
         //Add to favorite

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
+
 public class SplashActivity extends AppCompatActivity {
     private static final String TAG = "SplashActivity";
     private Handler handler;
